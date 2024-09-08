@@ -1,0 +1,101 @@
+body{
+    background-color: rgb(141, 141, 141);
+}
+
+.login_container{
+    width: 40%;
+    height: 37%;
+    padding: 5px;
+    padding: 10px;
+    background-color: #ccc;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    border-color: transparent;
+    box-shadow: 10px 10px rgba(157, 154, 154, 0.667);
+}
+
+.title-container{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: medium;
+    margin: 0;
+    padding: 10px;
+    color: rgb(28, 22, 22);
+}
+
+h2{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    color: rgb(39, 30, 30);
+}
+
+.formulario{
+    margin: auto;
+}
+
+input{
+    width: 96%;
+    padding: 3px;
+    display: block;
+    margin: 15px;
+    border-radius: 10px;
+    border-color: transparent;
+    color: rgb(71, 51, 51);
+}
+
+input:first-child{
+    margin-top: 10px;
+}
+
+input::placeholder{
+    color: rgb(99, 90, 90);
+}
+
+input:focus{
+    outline: none;
+    border-color: #ccc ;
+}
+
+.boton{
+    position: relative;
+    display: inline-block;
+    width: 90px;
+    margin-left: 100px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    border-color: #ccc;
+    color:black;
+}
+
+.boton:last-child{
+    position: relative;
+    margin: auto;
+    margin-left: 370px;
+}
+
+.selector{
+    margin: auto;
+    padding: 0;
+}
+
+option{
+    margin: auto;
+    display: inline-block;
+    border-color: #ccc;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+option:focus{
+    outline: none;
+    border-color: #ccc ;
+}
+
+label{
+    font-family: sans-serif;
+    margin-left: 18px;
+    font-size: 15px;
+}
