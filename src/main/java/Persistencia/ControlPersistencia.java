@@ -58,6 +58,17 @@ public class ControlPersistencia {
         }
         return false;
     }
+
+    public Usuario traerUsuario(String username, String password) {
+         List<Usuario> us = userJpa.findUsuarioEntities();
+        
+        for(Usuario u:us){
+            if(u.getNombreUsuario().equals(username) && u.getContrasenia().equals(password)){
+                return u;
+            }   
+        }
+        return null;
+    }
         
         
 }

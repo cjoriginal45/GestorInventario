@@ -13,6 +13,7 @@ Servlets\SvIndex.class
 Persistencia\exceptions\PreexistingEntityException.class
 Persistencia\ControlPersistencia.class
 Logica\Categoria.class
+Servlets\SvIndex$1.class
 Persistencia\UsuarioJpaController.class
 Logica\Producto.class
 Logica\Producto_.class

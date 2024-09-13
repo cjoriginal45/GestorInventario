@@ -34,7 +34,17 @@ public class ControlLogica {
     }
 
     public boolean authenticate(String nombreUsuario, String contrasenia) {
-        return control.authenticate(nombreUsuario,contrasenia);
+        return control.authenticate(nombreUsuario, contrasenia);
+    }
+
+    public Rol authenticateAndGetRole(String username, String password) {
+        // Lógica para autenticar al usuario y obtener su rol
+        Usuario user = control.traerUsuario(username, password);
+        if (user != null) {
+            return user.getRol();  // Devuelve el rol del usuario
+        } else {
+            return null;  // Autenticación fallida
+        }
     }
 
 }

@@ -1,8 +1,7 @@
-
 package Servlets;
 
 import Logica.ControlLogica;
-
+import Logica.Rol;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -25,29 +25,38 @@ public class SvIndex extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Obtener parámetros del formulario
+
         String username = request.getParameter("nombreUsuario");
         String password = request.getParameter("contrasenia");
 
-        // Lógica de autenticación
-        boolean isAuthenticated = control.authenticate(username, password);
+        // Lógica de autenticación: devolver el rol del usuario o null si no está autenticado
+        Rol userRole = control.authenticateAndGetRole(username, password);
 
-        // Redirigir según el resultado de la autenticación
-            if (isAuthenticated) {
-            // Redirigir a una página de éxito
-            response.sendRedirect("PaginaPrincipal.jsp");
-        } else {
-            // Redirigir de vuelta al login con un mensaje de error
-            response.sendRedirect("index.jsp?Usuario o contraseña incorrectos");
+        if (userRole!= null) {
+            // Usuario autenticado correctamente, ahora redirigimos según su rol
+            HttpSession session = request.getSession();
+            session.setAttribute("nombreUsuario", username);
+            session.setAttribute("rol", userRole);
+
+            // Redirigir según el rol usando el enum
+        switch (userRole) {
+            case ADMINISTRADOR:
+                response.sendRedirect("PrincipalAdmin.jsp");
+                break;
+            case EMPLEADO:
+                response.sendRedirect("PaginaPrincipal.jsp");
+                break;
+            default:
+                // En caso de que el rol no sea reconocido
+                response.sendRedirect("index.jsp?error=Rol no reconocido");
+                break;
         }
+    } else {
+        // Usuario o contraseña incorrectos, redirigir al login con un mensaje de error
+        response.sendRedirect("index.jsp?error=Usuario o contraseña incorrectos");
     }
 
+    }
 }

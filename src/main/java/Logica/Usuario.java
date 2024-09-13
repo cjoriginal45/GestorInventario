@@ -37,6 +37,7 @@ public class Usuario implements Serializable {
         this.contrasenia = contrasenia;
         this.rol = rol;
     }
+    
 
     public int getId() {
         return id;

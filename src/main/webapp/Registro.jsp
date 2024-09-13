@@ -23,11 +23,6 @@
             <form class="formulario" action="SvRegistro" method="POST">
                 <input type="text" name="nombreUsuario" placeholder="Ingresar nombre de usuario" required>
                 <input type="password" name="contrasenia" placeholder="Ingresar contraseña" required>
-                <label for="enumSelect">Tipo de usuario:</label>
-                <select class="selector" id="enumSelect" name="enumOptions">
-                    <option value="EMPLEADO">EMPLEADO</option>
-                    <option value="ADMINISTRADOR">ADMINISTRADOR</option>
-                </select>
                 <input type="submit" value="Registrarse" class="boton">
                 <input type="button" value="volver a inicio sesion" class="boton" onclick="window.location.href='index.jsp'"> 
             </form>

@@ -71,31 +71,14 @@ input:focus{
     color:black;
 }
 
-.boton:last-child{
+.boton:first-child{
     position: relative;
     margin: auto;
     margin-left: 370px;
 }
 
-.selector{
+.boton:last-child{
+    position: relative;
     margin: auto;
-    padding: 0;
-}
-
-option{
-    margin: auto;
-    display: inline-block;
-    border-color: #ccc;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-option:focus{
-    outline: none;
-    border-color: #ccc ;
-}
-
-label{
-    font-family: sans-serif;
-    margin-left: 18px;
-    font-size: 15px;
+    margin-left: 370px;
 }
