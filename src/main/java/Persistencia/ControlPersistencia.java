@@ -69,6 +69,23 @@ public class ControlPersistencia {
         }
         return null;
     }
+
+    public void eliminarUsuario(String nombre) {
+        List<Usuario> us = userJpa.findUsuarioEntities();
+        int id=0;
+        
+        for(Usuario u:us){
+            if(u.getNombreUsuario().equals(nombre)){
+                id=u.getId();
+                break;
+            }   
+        }
+            try {
+                userJpa.destroy(id);
+            } catch (NonexistentEntityException ex) {
+                Logger.getLogger(ControlPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
         
         
 }

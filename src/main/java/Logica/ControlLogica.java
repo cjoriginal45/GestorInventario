@@ -24,6 +24,10 @@ public class ControlLogica {
     public void eliminarUsuario(int id) {
         control.eliminarUsuario(id);
     }
+    
+    public void eliminarUsuario(String nombre){
+        control.eliminarUsuario(nombre);
+    }
 
     public void editarUsuario(Usuario usu) {
         control.editarUsuario(usu);
